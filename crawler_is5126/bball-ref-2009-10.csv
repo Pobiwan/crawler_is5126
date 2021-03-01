@@ -1,0 +1,6 @@
+ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,height,weight,salary,re_rank,season,draft_team,exp
+1,Arron Afflalo,SG,24,DEN,82,75,2221,272,585,.465,108,249,.434,164,336,.488,.557,72,98,.735,59,193,252,138,46,30,74,225,724,95kg,196cm,1086240,26,2009-10,Detroit Pistons,3
+3,LaMarcus Aldridge,PF,24,POR,78,78,2922,579,1169,.495,5,16,.313,574,1153,.498,.497,230,304,.757,192,435,627,160,67,48,104,231,1393,113kg,211cm,5844827,12,2009-10,Chicago Bulls,4
+2,Alexis Ajinça,C,21,CHA,6,0,30,5,10,.500,0,0,,5,10,.500,.500,0,1,.000,1,3,4,0,1,1,2,5,10,112kg,218cm,1372080,,2009-10,Charlotte Bobcats,2
+8,Rafer Alston,PG,33,TOT,52,38,1421,155,446,.348,58,168,.345,97,278,.349,.413,59,81,.728,13,116,129,176,50,10,95,103,427,77kg,188cm,4300000,,2009-10,Milwaukee Bucks,13
+7,Tony Allen,SG,28,BOS,54,8,889,129,253,.510,0,5,.000,129,248,.520,.510,72,119,.605,52,93,145,72,59,19,66,109,330,96kg,193cm,2500000,,2009-10,Boston Celtics,6

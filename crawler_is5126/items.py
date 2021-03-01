@@ -12,8 +12,9 @@ class CrawlerIs5126Item(scrapy.Item):
     # define the fields for your item here like:
 
     #headerlist = ['Rk','Player','Pos','Age','Tm','G','GS','MP','FG','FGA','FG%','3P','3PA','3P%','2P','2PA','2P%','eFG%','FT','FTA','FT%','ORB','DRB','TRB','AST','STL','BLK','TOV','PF','PTS']
+    season = scrapy.Field()
     player = scrapy.Field()
-    rank = scrapy.Field()
+    ranker = scrapy.Field()
     pos = scrapy.Field()
     age = scrapy.Field()
     team_id = scrapy.Field()
@@ -42,8 +43,14 @@ class CrawlerIs5126Item(scrapy.Item):
     tov = scrapy.Field()
     pf = scrapy.Field()
     pts = scrapy.Field()
+    per = scrapy.Field()
+    ws = scrapy.Field()
     weight = scrapy.Field()
     height = scrapy.Field()
+    salary = scrapy.Field()
+    re_rank = scrapy.Field()
+    draft_team = scrapy.Field()
+    exp = scrapy.Field()
     pass
 
 
@@ -81,5 +88,6 @@ class CrawlerIs5126Item(scrapy.Item):
 
 class CrawlerIs5126TeamItem(scrapy.Item):
 
+    name = scrapy.Field()
 
     pass
