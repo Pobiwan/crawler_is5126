@@ -1,0 +1,2 @@
+ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,height,weight,salary,re_rank,season,draft_team,exp,career_salary
+469,Tyler Zeller,C,23,CLE,77,55,2033,245,559,.438,0,4,.000,245,555,.441,.438,120,157,.764,159,279,438,96,35,70,95,251,610,114,213,1563120,18,2012/2013,Dallas Mavericks,0,"$17,643,678"

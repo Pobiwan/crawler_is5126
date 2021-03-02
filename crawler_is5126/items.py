@@ -51,6 +51,7 @@ class CrawlerIs5126Item(scrapy.Item):
     re_rank = scrapy.Field()
     draft_team = scrapy.Field()
     exp = scrapy.Field()
+    career_salary = scrapy.Field()
     pass
 
 
@@ -89,5 +90,8 @@ class CrawlerIs5126Item(scrapy.Item):
 class CrawlerIs5126TeamItem(scrapy.Item):
 
     name = scrapy.Field()
+    location = scrapy.Field()
+    season = scrapy.Field()
+
 
     pass
