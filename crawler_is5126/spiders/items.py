@@ -119,5 +119,4 @@ class CrawlerIs5126TeamItem(scrapy.Item):
     tov = scrapy.Field()
     pf = scrapy.Field()
     pts = scrapy.Field()
-
     pass

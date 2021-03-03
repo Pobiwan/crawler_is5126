@@ -1,3 +1,4 @@
+"""
 import scrapy
 import csv
 import re
@@ -36,15 +37,15 @@ class BballSpider(scrapy.Spider):
         urls = [
             #'https://www.basketball-reference.com/leagues/NBA_2010_totals.html',
             #'https://www.basketball-reference.com/leagues/NBA_2011_totals.html',
-            'https://www.basketball-reference.com/leagues/NBA_2012_totals.html', 
-            'https://www.basketball-reference.com/leagues/NBA_2013_totals.html',
-            'https://www.basketball-reference.com/leagues/NBA_2014_totals.html', 
-            'https://www.basketball-reference.com/leagues/NBA_2015_totals.html',
-            'https://www.basketball-reference.com/leagues/NBA_2016_totals.html']
-            #'https://www.basketball-reference.com/leagues/NBA_2017_totals.html',
+            #'https://www.basketball-reference.com/leagues/NBA_2012_totals.html', 
+            #'https://www.basketball-reference.com/leagues/NBA_2013_totals.html',
+            #'https://www.basketball-reference.com/leagues/NBA_2014_totals.html', 
+            #'https://www.basketball-reference.com/leagues/NBA_2015_totals.html',
+            #'https://www.basketball-reference.com/leagues/NBA_2016_totals.html'
+            'https://www.basketball-reference.com/leagues/NBA_2017_totals.html']
             #'https://www.basketball-reference.com/leagues/NBA_2018_totals.html',
             #'https://www.basketball-reference.com/leagues/NBA_2019_totals.html',
-            #'https://www.basketball-reference.com/leagues/NBA_2020_totals.html',
+            #'https://www.basketball-reference.com/leagues/NBA_2020_totals.html']
         
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
@@ -172,10 +173,11 @@ class BballSpider(scrapy.Spider):
             print('player team link is ', player_team_link)
             if(player_team_link):
                 team_next_page = response.urljoin(player_team_link)
+                #yield scrapy.Request(team_next_page, callback=self.parse_player_team, dont_filter=False)
             else:
                 print('Player has already retired after the current season')
             print('player item is ', myItem)
-            #yield scrapy.Request(team_next_page, callback=self.parse_player_team, dont_filter=False)
+            
 
             filename = f'bball-ref-{response.meta["season_alt"]}.csv'
             with open('./csv/'+ filename,'a+', newline='',encoding="utf-8") as file:
@@ -194,16 +196,7 @@ class BballSpider(scrapy.Spider):
 
     def parse_player_team(self,response):
             #print('item is ',response.meta['item'])
-            myTeamItem = CrawlerIs5126TeamItem()
-            name_list = response.css('h1[itemprop="name"] span::text').getall()
-            if(name_list):
-                name = name_list[1]
-                myTeamItem['name'] = name
-            location_str = response.xpath('normalize-space(//p [strong="Arena:"])').get()
-            if(location_str):
-                location_str.split(':')[1]
-                myTeamItem['location'] = location_str.strip()
+        return
 
-
-
-    
+# need to end with triple quotes for block comment
+"""

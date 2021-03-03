@@ -1,0 +1,28 @@
+use square brackets to assign conditional values for attribute of an element with @
+use @ without square bracket to get some attribute value of an element
+use square bracket without @ to indicate that its a html tag and equals to the text
+response.xpath('//tr[@class="full_table"] /td[@data-stat="player"] /a[contains(text(),"steven adams")]').get()
+
+response.css('.full_table .left[data-stat="player"] a::text').get()
+
+to get attribute use ::attribute(data-stat)
+
+@class='someclass' will miss out those element that contains this class (but have more than 1 other classes)
+
+response.xpath('//tr//a').get() means get self or any descendant a
+response.xpath('//tr/a').get() means get immediate child node a
+  
+ .// means will only select elements under the current node
+ // means select from the root document node
+ 
+response.xpath('//td[@class="'+test+'"]').get() to use test variable
+
+
+from ..items import CrawlerIs5126Item, CrawlerIs5126TeamItem
+
+
+scrapy runspider ./crawler_is5126/spiders/bballteam.py
+use this instead, from crawler_is5126.items import CrawlerIs5126Item, CrawlerIs5126TeamItem
+
+
+response.xpath('//th[@data-stat="season"] /a[text()="'+ season_param +'"] /ancestor::tr /td[@class="left " and @data-stat="team_id"] /a/@href').getall()
