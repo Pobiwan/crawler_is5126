@@ -33,17 +33,17 @@ class BballSpider(scrapy.Spider):
     def start_requests(self):
         urls = [
             #'https://www.basketball-reference.com/players/a/adebaba01.html']
-            'https://www.basketball-reference.com/leagues/NBA_2010_totals.html'
-            'https://www.basketball-reference.com/leagues/NBA_2011_totals.html',
-            'https://www.basketball-reference.com/leagues/NBA_2012_totals.html', 
-            'https://www.basketball-reference.com/leagues/NBA_2013_totals.html',
-            'https://www.basketball-reference.com/leagues/NBA_2014_totals.html', 
-            'https://www.basketball-reference.com/leagues/NBA_2015_totals.html',
-            'https://www.basketball-reference.com/leagues/NBA_2016_totals.html',
-            'https://www.basketball-reference.com/leagues/NBA_2017_totals.html',
-            'https://www.basketball-reference.com/leagues/NBA_2018_totals.html',
-            'https://www.basketball-reference.com/leagues/NBA_2019_totals.html',
-            'https://www.basketball-reference.com/leagues/NBA_2020_totals.html']
+            #'https://www.basketball-reference.com/leagues/NBA_2010_totals.html'
+            'https://www.basketball-reference.com/leagues/NBA_2011_totals.html']
+            #'https://www.basketball-reference.com/leagues/NBA_2012_totals.html', 
+            #'https://www.basketball-reference.com/leagues/NBA_2013_totals.html',
+            #'https://www.basketball-reference.com/leagues/NBA_2014_totals.html', 
+            #'https://www.basketball-reference.com/leagues/NBA_2015_totals.html',
+            #'https://www.basketball-reference.com/leagues/NBA_2016_totals.html',
+            #'https://www.basketball-reference.com/leagues/NBA_2017_totals.html',
+            #'https://www.basketball-reference.com/leagues/NBA_2018_totals.html',
+            #'https://www.basketball-reference.com/leagues/NBA_2019_totals.html',
+            #'https://www.basketball-reference.com/leagues/NBA_2020_totals.html']
         
         for url in urls:
             #yield scrapy.Request(url=url, callback=self.parse_player, meta= { "season": "2020","header":['g','mp','fg','fga','fg_pct','fg3','fg3a','fg3_pct','fg2','fg2a','fg2_pct','ft','fta','ft_pct','orb','drb','trb','ast','stl','blk','tov','pf','pts' ] })
