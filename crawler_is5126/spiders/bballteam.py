@@ -1,4 +1,4 @@
-"""
+
 import scrapy
 import csv
 import re
@@ -33,7 +33,7 @@ class BballSpider(scrapy.Spider):
     def start_requests(self):
         urls = [
             #'https://www.basketball-reference.com/players/a/adebaba01.html']
-            #'https://www.basketball-reference.com/leagues/NBA_2010_totals.html'
+            'https://www.basketball-reference.com/leagues/NBA_2010_totals.html'
             'https://www.basketball-reference.com/leagues/NBA_2011_totals.html',
             'https://www.basketball-reference.com/leagues/NBA_2012_totals.html', 
             'https://www.basketball-reference.com/leagues/NBA_2013_totals.html',
@@ -66,6 +66,7 @@ class BballSpider(scrapy.Spider):
         player_header_row.append('seasons_played')
         player_header_row.append('play_off')
         player_header_row.append('champion')
+        player_header_row.append('record')
 
         teams_list = response.xpath('//td[@data-stat="team_id"] /a/@href').getall() 
         unique_teams_list = list(dict.fromkeys(teams_list))
@@ -144,8 +145,28 @@ class BballSpider(scrapy.Spider):
                 myTeamItem['avg_team_exp'] = round((sum(all_exp))/ len(all_exp),2)
             print('my team item is ', myTeamItem)
             # need to turn dont_filter to true as it will be accessing the play_off html over and over again
-            yield scrapy.Request("https://www.basketball-reference.com/playoffs/", callback=self.play_off, meta= {"header": team_header_row, "myTeamItem": myTeamItem}, dont_filter=True)
+            #yield scrapy.Request("https://www.basketball-reference.com/playoffs/", callback=self.play_off, meta= {"header": team_header_row, "myTeamItem": myTeamItem}, dont_filter=True)
+            team_franchise_link = response.css("#bottom_nav_container p a::attr(href)").get() 
+            team_franchise_link = response.urljoin(team_franchise_link)
+            yield scrapy.Request("https://www.basketball-reference.com/playoffs/", callback=self.play_off, meta= {"header": team_header_row, "myTeamItem": myTeamItem}, dont_filter=false)
+    def team_franchise(self,response):
+        team_header_row = response.meta['header']
+        myTeamItem = response.meta['myTeamItem']
 
+        # get location
+        location = response.xpath('normalize-space(//p [strong="Location:"])').get()
+        if(location):
+            myTeamItem['location'] = location.split(':')[1]
+        # get record
+        record = response.xpath('normalize-space(//p [strong="Record:"])').get()
+        if(record):
+            myTeamItem['record'] = record.split(':')[1] 
+        # get seasons_played
+        seasons_played = response.xpath('normalize-space(//p [strong="Seasons:"])').get()
+        if(record):
+            myTeamItem['seasons_played'] = seasons_played.split(':')[1] 
+            
+        yield scrapy.Request("https://www.basketball-reference.com/playoffs/", callback=self.play_off, meta= {"header": team_header_row, "myTeamItem": myTeamItem}, dont_filter=True)
     def play_off(self,response):
         finalTeamItem = response.meta["myTeamItem"]
         finalTeamItem['play_off'] = 0
@@ -165,8 +186,10 @@ class BballSpider(scrapy.Spider):
         #print('champion is ', champion_team)
         #print('Final ', finalTeamItem)
         print('final before write ',finalTeamItem)
+
+
         # 
-        filename = f'bball-ref-team-{season}.csv'
+        filename = f'bball-ref-team-{season}-new.csv'
         with open('C:\\Users\\157664\\Desktop\\crawler_is5126\\crawler_is5126\\teams\\' + filename,'a+', newline='',encoding="utf-8") as file:
             if(self.header_written[finalTeamItem["season"]]):
                 print('Header already written for ', finalTeamItem['season'])
@@ -177,4 +200,3 @@ class BballSpider(scrapy.Spider):
                 print('Header written for ', self.header_written)
             csv_writer = csv.DictWriter(file, fieldnames=response.meta['header'])
             csv_writer.writerow(finalTeamItem)
-"""

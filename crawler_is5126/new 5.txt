@@ -5,7 +5,7 @@ response.xpath('//tr[@class="full_table"] /td[@data-stat="player"] /a[contains(t
 
 response.css('.full_table .left[data-stat="player"] a::text').get()
 
-to get attribute use ::attribute(data-stat)
+to get attribute use ::attr(data-stat)
 
 @class='someclass' will miss out those element that contains this class (but have more than 1 other classes)
 

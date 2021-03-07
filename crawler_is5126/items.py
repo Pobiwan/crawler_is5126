@@ -98,6 +98,7 @@ class CrawlerIs5126TeamItem(scrapy.Item):
     avg_team_exp = scrapy.Field()
     avg_team_age = scrapy.Field()
     seasons_played = scrapy.Field()
+    record = scrapy.Field()
     g = scrapy.Field()
     mp = scrapy.Field()
     fg = scrapy.Field()
