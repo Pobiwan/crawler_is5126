@@ -148,7 +148,8 @@ class BballSpider(scrapy.Spider):
             #yield scrapy.Request("https://www.basketball-reference.com/playoffs/", callback=self.play_off, meta= {"header": team_header_row, "myTeamItem": myTeamItem}, dont_filter=True)
             team_franchise_link = response.css("#bottom_nav_container p a::attr(href)").get() 
             team_franchise_link = response.urljoin(team_franchise_link)
-            yield scrapy.Request("https://www.basketball-reference.com/playoffs/", callback=self.play_off, meta= {"header": team_header_row, "myTeamItem": myTeamItem}, dont_filter=false)
+            yield scrapy.Request(team_franchise_link, callback=self.team_franchise, meta= {"header": team_header_row, "myTeamItem": myTeamItem}, dont_filter=True)
+    
     def team_franchise(self,response):
         team_header_row = response.meta['header']
         myTeamItem = response.meta['myTeamItem']
@@ -165,15 +166,39 @@ class BballSpider(scrapy.Spider):
         seasons_played = response.xpath('normalize-space(//p [strong="Seasons:"])').get()
         if(record):
             myTeamItem['seasons_played'] = seasons_played.split(':')[1] 
-            
-        yield scrapy.Request("https://www.basketball-reference.com/playoffs/", callback=self.play_off, meta= {"header": team_header_row, "myTeamItem": myTeamItem}, dont_filter=True)
+        # get play_off
+        play_off = response.xpath('normalize-space(//p [strong="Playoff Appearances:"])').get()
+        if(record):
+            myTeamItem["play_off"] = play_off.split(':')[1] 
+        # get championship
+        championships = response.xpath('normalize-space(//p [strong="Championships:"])').get()
+        if(record):
+            myTeamItem["championship"] = championships.split(':')[1]
+        # finalTeamItem = response.meta["myTeamItem"]
+        play_off_season = myTeamItem['season'].split('/')[1]
+        season = str(int(play_off_season) - 1) + '-' + myTeamItem['season'].split('/')[1][-2:]
+
+        filename = f'bball-ref-team-{season}-new.csv'
+        with open('C:\\Users\\157664\\Desktop\\crawler_is5126\\crawler_is5126\\teams\\' + filename,'a+', newline='',encoding="utf-8") as file:
+            if(self.header_written[myTeamItem["season"]]):
+                print('Header already written for ', myTeamItem['season'])
+            else:
+                csv_writer_normal = csv.writer(file)
+                csv_writer_normal.writerow(response.meta['header'])
+                self.header_written[myTeamItem["season"]] = True
+                print('Header written for ', self.header_written)
+            csv_writer = csv.DictWriter(file, fieldnames=response.meta['header'])
+            csv_writer.writerow(myTeamItem)
+        #yield scrapy.Request("https://www.basketball-reference.com/playoffs/", callback=self.play_off, meta= {"header": team_header_row, "myTeamItem": myTeamItem}, dont_filter=True)
+    
     def play_off(self,response):
+        """
         finalTeamItem = response.meta["myTeamItem"]
         finalTeamItem['play_off'] = 0
         finalTeamItem['champion'] = 0
         play_off_season = finalTeamItem['season'].split('/')[1]
         print('play_off_season is', play_off_season)
-        season = str(int(play_off_season) - 1) + '-' + finalTeamItem['season'].split('/')[1][-2:]
+        
         #print('text season is ', season)
         runner_up_team = response.xpath('//th[@data-stat="year_id"] /a[text()="'+play_off_season+'"] /parent::*/following-sibling::td[@data-stat="runnerup"] /a/text()').get()
         # get champion & runner up
@@ -186,9 +211,11 @@ class BballSpider(scrapy.Spider):
         #print('champion is ', champion_team)
         #print('Final ', finalTeamItem)
         print('final before write ',finalTeamItem)
-
-
         # 
+        finalTeamItem = response.meta["myTeamItem"]
+        play_off_season = finalTeamItem['season'].split('/')[1]
+        season = str(int(play_off_season) - 1) + '-' + finalTeamItem['season'].split('/')[1][-2:]
+
         filename = f'bball-ref-team-{season}-new.csv'
         with open('C:\\Users\\157664\\Desktop\\crawler_is5126\\crawler_is5126\\teams\\' + filename,'a+', newline='',encoding="utf-8") as file:
             if(self.header_written[finalTeamItem["season"]]):
@@ -200,3 +227,4 @@ class BballSpider(scrapy.Spider):
                 print('Header written for ', self.header_written)
             csv_writer = csv.DictWriter(file, fieldnames=response.meta['header'])
             csv_writer.writerow(finalTeamItem)
+        """
