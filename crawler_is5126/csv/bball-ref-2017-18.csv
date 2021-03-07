@@ -1,4 +1,4 @@
-ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,height,weight,salary,re_rank,season,draft_team,exp,career_salary
+ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,weight,height,salary,re_rank,season,draft_team,exp,career_salary
 1,Álex Abrines,SG,24,OKC,75,8,1134,115,291,0.395,84,221,0.38,31,70,0.443,0.54,39,46,0.848,26,88,114,28,38,8,25,124,353,90,198,5725000,,2017/2018,Oklahoma City Thunder,1,"$15,294,947 "
 2,Quincy Acy,PF,27,BRK,70,8,1359,130,365,0.356,102,292,0.349,28,73,0.384,0.496,49,60,0.817,40,217,257,57,33,29,60,149,411,108,201,1709538,,2017/2018,Toronto Raptors,9,"$8,239,454 "
 3,Steven Adams,C,24,OKC,76,76,2487,448,712,0.629,0,2,0,448,710,0.631,0.629,160,286,0.559,384,301,685,88,92,78,128,215,1056,120,211,22471910,5,2017/2018,Oklahoma City Thunder,4,"$82,167,308 "

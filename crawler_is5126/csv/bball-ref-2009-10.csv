@@ -1,4 +1,4 @@
-ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,height,weight,salary,re_rank,season,draft_team,exp,career_salary
+ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,weight,height,salary,re_rank,season,draft_team,exp,career_salary
 1,Arron Afflalo,SG,24,DEN,82,75,2221,272,585,0.465,108,249,0.434,164,336,0.488,0.557,72,98,0.735,59,193,252,138,46,30,74,225,724,95,196,1086240,26,2009/2010,Detroit Pistons,2,"$58,852,159 "
 2,Alexis Ajinça,C,21,CHA,6,0,30,5,10,0.5,0,0,,5,10,0.5,0.5,0,1,0,1,3,4,0,1,1,2,5,10,112,218,1372080,,2009/2010,Charlotte Bobcats,1,"$24,244,516 "
 3,LaMarcus Aldridge,PF,24,POR,78,78,2922,579,1169,0.495,5,16,0.313,574,1153,0.498,0.497,230,304,0.757,192,435,627,160,67,48,104,231,1393,113,211,5844827,12,2009/2010,Chicago Bulls,3,"$195,965,937 "

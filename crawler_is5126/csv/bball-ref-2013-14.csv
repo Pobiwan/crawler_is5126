@@ -1,4 +1,4 @@
-ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,height,weight,salary,re_rank,season,draft_team,exp,career_salary
+ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,weight,height,salary,re_rank,season,draft_team,exp,career_salary
 1,Quincy Acy,SF,23,SAC,56,0,786,60,127,0.472,2,10,0.2,58,117,0.496,0.48,30,45,0.667,67,134,201,24,19,23,28,114,152,108,201,788872,,2013/2014,Toronto Raptors,1,"$8,239,454 "
 1,Quincy Acy,SF,23,TOR,7,0,61,6,14,0.429,2,5,0.4,4,9,0.444,0.5,5,8,0.625,5,10,15,4,4,3,2,8,19,108,201,788872,,2013/2014,Toronto Raptors,1,"$8,239,454 "
 1,Quincy Acy,SF,23,TOT,63,0,847,66,141,0.468,4,15,0.267,62,126,0.492,0.482,35,53,0.66,72,144,216,28,23,26,30,122,171,108,201,788872,,2013/2014,Toronto Raptors,1,"$8,239,454 "

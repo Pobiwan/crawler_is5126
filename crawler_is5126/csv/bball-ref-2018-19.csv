@@ -1,4 +1,4 @@
-ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,height,weight,salary,re_rank,season,draft_team,exp,career_salary
+ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,weight,height,salary,re_rank,season,draft_team,exp,career_salary
 1,Álex Abrines,SG,25,OKC,31,2,588,56,157,0.357,41,127,0.323,15,30,0.5,0.487,12,13,0.923,5,43,48,20,17,6,14,53,165,90,198,3575183,,2018/2019,Oklahoma City Thunder,2,"$15,294,947 "
 2,Quincy Acy,PF,28,PHO,10,0,123,4,18,0.222,2,15,0.133,2,3,0.667,0.278,7,10,0.7,3,22,25,8,1,4,4,24,17,108,201,213948,,2018/2019,Toronto Raptors,10,"$8,239,454 "
 3,Jaylen Adams,PG,22,ATL,34,1,428,38,110,0.345,25,74,0.338,13,36,0.361,0.459,7,9,0.778,11,49,60,65,14,5,28,45,108,102,183,236854,,2018/2019,,0,"$500,210 "

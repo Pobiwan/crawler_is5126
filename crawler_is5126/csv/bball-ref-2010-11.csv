@@ -1,4 +1,4 @@
-ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,height,weight,salary,re_rank,season,draft_team,exp,career_salary
+ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,weight,height,salary,re_rank,season,draft_team,exp,career_salary
 1,Jeff Adrien,PF,24,GSW,23,0,196,23,54,0.426,0,0,,23,54,0.426,0.426,11,19,0.579,23,35,58,10,4,5,9,28,57,111,201,342666,53,2010/2011,,0,"$3,314,407 "
 2,Arron Afflalo,SG,25,DEN,69,69,2324,312,627,0.498,105,248,0.423,207,379,0.546,0.581,138,163,0.847,45,206,251,168,34,31,71,153,867,95,196,1959577,26,2010/2011,Detroit Pistons,3,"$58,852,159 "
 3,Maurice Ager,SG,26,MIN,4,0,29,6,11,0.545,3,4,0.75,3,7,0.429,0.682,0,0,,0,2,2,1,1,0,4,4,15,91,196,83305,54,2010/2011,Dallas Mavericks,5,"$3,006,625 "

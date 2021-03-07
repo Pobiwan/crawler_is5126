@@ -1,4 +1,4 @@
-ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,height,weight,salary,re_rank,season,draft_team,exp,career_salary
+ranker,player,pos,age,team_id,g,gs,mp,fg,fga,fg_pct,fg3,fg3a,fg3_pct,fg2,fg2a,fg2_pct,efg_pct,ft,fta,ft_pct,orb,drb,trb,ast,stl,blk,tov,pf,pts,weight,height,salary,re_rank,season,draft_team,exp,career_salary
 1,Quincy Acy,PF,25,SAC,59,29,876,119,214,0.556,19,49,0.388,100,165,0.606,0.6,50,68,0.735,65,123,188,27,29,24,27,103,307,108,201,981348,,2015/2016,Toronto Raptors,5,"$8,239,454 "
 2,Jordan Adams,SG,21,MEM,2,0,15,2,6,0.333,0,1,0,2,5,0.4,0.333,3,5,0.6,0,2,2,3,3,0,2,2,7,94,196,1404600,59,2015/2016,Memphis Grizzlies,1,"$4,213,800 "
 3,Steven Adams,C,22,OKC,80,80,2014,261,426,0.613,0,0,,261,426,0.613,0.613,114,196,0.582,219,314,533,62,42,89,84,223,636,120,211,2279040,5,2015/2016,Oklahoma City Thunder,2,"$82,167,308 "
