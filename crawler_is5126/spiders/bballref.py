@@ -1,4 +1,4 @@
-"""
+
 import scrapy
 import csv
 import re
@@ -42,10 +42,10 @@ class BballSpider(scrapy.Spider):
             #'https://www.basketball-reference.com/leagues/NBA_2014_totals.html', 
             #'https://www.basketball-reference.com/leagues/NBA_2015_totals.html',
             #'https://www.basketball-reference.com/leagues/NBA_2016_totals.html'
-            'https://www.basketball-reference.com/leagues/NBA_2017_totals.html']
+            #'https://www.basketball-reference.com/leagues/NBA_2017_totals.html']
             #'https://www.basketball-reference.com/leagues/NBA_2018_totals.html',
             #'https://www.basketball-reference.com/leagues/NBA_2019_totals.html',
-            #'https://www.basketball-reference.com/leagues/NBA_2020_totals.html']
+            'https://www.basketball-reference.com/leagues/NBA_2020_totals.html']
         
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
@@ -88,6 +88,8 @@ class BballSpider(scrapy.Spider):
         player_header_row.append('draft_team')
         player_header_row.append('exp')
         player_header_row.append('career_salary')
+        player_header_row.append('career_per')
+        player_header_row.append("career_ws")
         data_stats = []
         # Step 1: Extract all the player row. 
         #self.log(f'Player header row is {player_header_row}')
@@ -169,18 +171,25 @@ class BballSpider(scrapy.Spider):
             # print('salary is ', myItem['salary'], ' for season ', myItem['season'], ' for player ', myItem['player'])
             # print('Final player info is ', myItem)
             # print('player header row is ', response.meta['header_row'])
-            player_team_link = response.xpath('//p [strong="Team"]/a/@href' ).get()
-            print('player team link is ', player_team_link)
-            if(player_team_link):
-                team_next_page = response.urljoin(player_team_link)
+            #player_team_link = response.xpath('//p [strong="Team"]/a/@href' ).get()
+            #print('player team link is ', player_team_link)
+            #if(player_team_link):
+                #team_next_page = response.urljoin(player_team_link)
                 #yield scrapy.Request(team_next_page, callback=self.parse_player_team, dont_filter=False)
-            else:
-                print('Player has already retired after the current season')
+            #else:
+                #print('Player has already retired after the current season')
             print('player item is ', myItem)
             
-
-            filename = f'bball-ref-{response.meta["season_alt"]}.csv'
-            with open('./csv/'+ filename,'a+', newline='',encoding="utf-8") as file:
+            player_career_ws = response.css('.p3 p::text').getall()
+            if(len(player_career_ws) == 4):
+                myItem["career_per"] = player_career_ws[1]
+                myItem["career_ws"] = player_career_ws[3]
+            elif(len(player_career_ws) == 2):
+                myItem["career_per"] = player_career_ws[0]
+                myItem["career_ws"] = player_career_ws[1]
+                
+            filename = f'bball-ref-{response.meta["season_alt"]}-new.csv'
+            with open('C:\\Users\\157664\\Desktop\\crawler_is5126\\crawler_is5126\\csv\\'+ filename,'a+', newline='',encoding="utf-8") as file:
 
                 if(self.header_written[myItem["season"]]):
                     print('Header already written for ', myItem['season'])
@@ -199,4 +208,3 @@ class BballSpider(scrapy.Spider):
         return
 
 # need to end with triple quotes for block comment
-"""

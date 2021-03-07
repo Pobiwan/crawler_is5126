@@ -1,3 +1,4 @@
+"""
 import scrapy
 import csv
 import re
@@ -176,3 +177,4 @@ class BballSpider(scrapy.Spider):
                 print('Header written for ', self.header_written)
             csv_writer = csv.DictWriter(file, fieldnames=response.meta['header'])
             csv_writer.writerow(finalTeamItem)
+"""

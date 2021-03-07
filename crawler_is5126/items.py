@@ -50,6 +50,8 @@ class CrawlerIs5126Item(scrapy.Item):
     draft_team = scrapy.Field()
     exp = scrapy.Field()
     career_salary = scrapy.Field()
+    career_per = scrapy.Field()
+    career_ws = scrapy.Field()
     pass
 
 
