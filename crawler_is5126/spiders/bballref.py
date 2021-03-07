@@ -146,10 +146,10 @@ class BballSpider(scrapy.Spider):
             # xpath must contain "" for string condition, there is no need for css
             # player_weight = response.css('/span[itemprop=weight]::text').get()
             weightandheight = response.xpath('//span[@itemprop="weight"] /parent::*').re(r'\((\w*),\s*(\w*)\)')
-            myItem['weight'] = weightandheight[0][0:-2]
+            myItem['weight'] = weightandheight[1][0:-2]
             # get height
             # player_height = response.css('span[itemprop=height]::text').get()
-            myItem['height'] = weightandheight[1][0:-2]
+            myItem['height'] = weightandheight[0][0:-2]
             #player_team_link = response.xpath('//p /*[contains(text(),"Team")]/parent::* /a/@href' ).get()
             # get re_rank, re_rank may be null
             re_rank_list = response.xpath('//p[strong="Recruiting Rank: "]').re(r'\((\d*)\)')
