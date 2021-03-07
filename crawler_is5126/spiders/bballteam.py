@@ -173,7 +173,7 @@ class BballSpider(scrapy.Spider):
         # get championship
         championships = response.xpath('normalize-space(//p [strong="Championships:"])').get()
         if(record):
-            myTeamItem["championship"] = championships.split(':')[1]
+            myTeamItem["champion"] = championships.split(':')[1]
         # finalTeamItem = response.meta["myTeamItem"]
         play_off_season = myTeamItem['season'].split('/')[1]
         season = str(int(play_off_season) - 1) + '-' + myTeamItem['season'].split('/')[1][-2:]
